@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors - Warm Turmeric Confidence */
+    --color-primary: #D97706; /* amber-600 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors - Deep Paprika Authority */
+    --color-secondary: #7C2D12; /* red-900 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors - Golden Saffron Highlights */
+    --color-accent: #F59E0B; /* amber-500 */
+    --color-accent-foreground: #1C1917; /* stone-900 */
+    
+    /* Background Colors - Warm Cream Canvas */
+    --color-background: #FFFBEB; /* amber-50 */
+    --color-foreground: #1C1917; /* stone-900 */
+    
+    /* Surface Colors - Subtle Spice Dust */
+    --color-card: #FEF3C7; /* amber-100 */
+    --color-card-foreground: #1C1917; /* stone-900 */
+    
+    /* Popover Colors */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1C1917; /* stone-900 */
+    
+    /* Muted Colors - Gentle Cinnamon Hierarchy */
+    --color-muted: #FEF3C7; /* amber-100 */
+    --color-muted-foreground: #78716C; /* stone-500 */
+    
+    /* Destructive/Error Colors - Respectful Correction Red */
+    --color-destructive: #DC2626; /* red-600 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Success Colors - Fresh Cilantro Confirmation */
+    --color-success: #16A34A; /* green-600 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    /* Warning Colors - Chili Pepper Urgency */
+    --color-warning: #EA580C; /* orange-600 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    /* Error Colors - Helpful Guidance */
+    --color-error: #DC2626; /* red-600 */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    /* Border Colors */
+    --color-border: #FDE68A; /* amber-200 */
+    --color-input: #FDE68A; /* amber-200 */
+    
+    /* Ring Colors */
+    --color-ring: #D97706; /* amber-600 */
+    
+    /* Radius */
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}

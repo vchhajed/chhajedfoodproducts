@@ -1,0 +1,126 @@
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import Icon from '@/components/ui/AppIcon';
+
+interface HeaderProps {
+  className?: string;
+}
+
+const Header = ({ className = '' }: HeaderProps) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navigationItems = [
+    { label: 'Home', href: '/homepage' },
+    { label: 'Products', href: '/product-catalog' },
+    { label: 'Our Story', href: '/manufacturing-story' },
+    { label: 'Quality', href: '/quality-commitment' },
+  ];
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  return (
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-card shadow-warm ${className}`}>
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20">
+          <Link href="/homepage" className="flex items-center space-x-3">
+            <div className="flex items-center justify-center w-12 h-12 bg-primary rounded-lg">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="text-primary-foreground"
+              >
+                <path
+                  d="M16 4C16 4 8 8 8 16C8 20 10 24 16 28C22 24 24 20 24 16C24 8 16 4 16 4Z"
+                  fill="currentColor"
+                  opacity="0.9"
+                />
+                <circle cx="16" cy="16" r="4" fill="currentColor" />
+                <path
+                  d="M12 12L16 8L20 12"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-headline font-bold text-xl text-foreground leading-tight">
+                Chhajed Foods
+              </span>
+              <span className="font-body text-xs text-muted-foreground">
+                Heritage & Quality
+              </span>
+            </div>
+          </Link>
+
+          <nav className="hidden lg:flex items-center space-x-1">
+            {navigationItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="px-4 py-2 font-body font-medium text-foreground hover:text-primary hover:bg-muted rounded-md transition-all duration-300 ease-out"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="hidden lg:flex items-center space-x-3">
+            <Link
+              href="/contact"
+              className="px-6 py-2.5 font-cta font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-md shadow-warm-sm transition-all duration-300 ease-out"
+            >
+              Contact Us
+            </Link>
+          </div>
+
+          <button
+            onClick={toggleMobileMenu}
+            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors duration-300"
+            aria-label="Toggle mobile menu"
+          >
+            <Icon
+              name={isMobileMenuOpen ? 'XMarkIcon' : 'Bars3Icon'}
+              size={28}
+              variant="outline"
+            />
+          </button>
+        </div>
+      </div>
+
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-card border-t border-border">
+          <nav className="container mx-auto px-4 py-4 flex flex-col space-y-2">
+            {navigationItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="px-4 py-3 font-body font-medium text-foreground hover:text-primary hover:bg-muted rounded-md transition-all duration-300 ease-out"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link
+              href="/contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="px-4 py-3 font-cta font-semibold text-center text-primary-foreground bg-primary hover:bg-primary/90 rounded-md shadow-warm-sm transition-all duration-300 ease-out"
+            >
+              Contact Us
+            </Link>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Header;
