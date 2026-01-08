@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
+import { useCart } from '@/context/CartContext';
 
 interface ProductCardProps {
   product: {
@@ -35,6 +36,8 @@ interface ProductCardProps {
 export default function ProductCard({ product, onSampleRequest, onBulkInquiry }: ProductCardProps) {
   const [showNutrition, setShowNutrition] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(false);
+  const { addToCart } = useCart();
 
   return (
     <div className="bg-card rounded-lg shadow-warm overflow-hidden border border-border hover:shadow-warm-lg transition-all duration-300 flex flex-col h-full">
@@ -135,20 +138,33 @@ export default function ProductCard({ product, onSampleRequest, onBulkInquiry }:
           </div>
         )}
 
-        <div className="mt-auto grid grid-cols-2 gap-3">
+        <div className="mt-auto">
           <button
-            onClick={() => onSampleRequest(product.id)}
+            onClick={() => {
+              addToCart({
+                id: product.id,
+                name: product.name,
+                brand: product.brand,
+                image: product.image,
+                weight: product.weight,
+              });
+              setAddedToCart(true);
+              setTimeout(() => setAddedToCart(false), 2000);
+            }}
             disabled={!product.inStock}
-            className="px-4 py-2.5 font-cta font-semibold text-sm text-primary bg-background border-2 border-primary hover:bg-primary hover:text-primary-foreground rounded-md transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-3 font-cta font-semibold text-sm text-primary-foreground bg-primary hover:bg-primary/90 rounded-md shadow-warm-sm transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
-            Request Sample
-          </button>
-          <button
-            onClick={() => onBulkInquiry(product.id)}
-            disabled={!product.inStock}
-            className="px-4 py-2.5 font-cta font-semibold text-sm text-primary-foreground bg-primary hover:bg-primary/90 rounded-md shadow-warm-sm transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Bulk Inquiry
+            {addedToCart ? (
+              <>
+                <Icon name="CheckCircleIcon" size={20} variant="solid" />
+                Added to Cart
+              </>
+            ) : (
+              <>
+                <Icon name="ShoppingCartIcon" size={20} variant="outline" />
+                Add to Cart
+              </>
+            )}
           </button>
         </div>
       </div>

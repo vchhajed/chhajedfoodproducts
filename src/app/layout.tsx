@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/index.css';
+import { CartProvider } from '@/context/CartContext';
 
 export const viewport = {
   width: 'device-width',
@@ -7,8 +8,8 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: 'Next.js with Tailwind CSS',
-  description: 'A boilerplate project with Next.js and Tailwind CSS',
+  title: 'Chhajed Food Products - Premium Snacks & Spreads',
+  description: 'Chhajed Food Products - Premium quality dips, spreads, syrups, chatni, and fragrances from Pune, India',
   icons: {
     icon: [
       { url: '/favicon.ico', type: 'image/x-icon' }
@@ -23,8 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}
-</body>
+      <body>
+        <CartProvider>
+          {children}
+        </CartProvider>
+      </body>
     </html>
   );
 }

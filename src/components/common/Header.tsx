@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
+import { useCart } from '@/context/CartContext';
+import CartModal from '@/components/cart/CartModal';
 
 interface HeaderProps {
   className?: string;
@@ -10,6 +12,8 @@ interface HeaderProps {
 
 const Header = ({ className = '' }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { getTotalItems } = useCart();
 
   const navigationItems = [
     { label: 'Home', href: '/homepage' },
@@ -74,6 +78,18 @@ const Header = ({ className = '' }: HeaderProps) => {
           </nav>
 
           <div className="hidden lg:flex items-center space-x-3">
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative p-2 text-foreground hover:text-primary transition-colors duration-300"
+              aria-label="Shopping cart"
+            >
+              <Icon name="ShoppingCartIcon" size={24} variant="outline" />
+              {getTotalItems() > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {getTotalItems()}
+                </span>
+              )}
+            </button>
             <Link
               href="/contact"
               className="px-6 py-2.5 font-cta font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-md shadow-warm-sm transition-all duration-300 ease-out"
@@ -109,6 +125,23 @@ const Header = ({ className = '' }: HeaderProps) => {
                 {item.label}
               </Link>
             ))}
+            <button
+              onClick={() => {
+                setIsCartOpen(true);
+                setIsMobileMenuOpen(false);
+              }}
+              className="px-4 py-3 font-body font-medium text-foreground hover:text-primary hover:bg-muted rounded-md transition-all duration-300 ease-out flex items-center justify-between"
+            >
+              <span className="flex items-center gap-2">
+                <Icon name="ShoppingCartIcon" size={20} variant="outline" />
+                Cart
+              </span>
+              {getTotalItems() > 0 && (
+                <span className="bg-primary text-primary-foreground text-xs font-bold rounded-full px-2 py-1">
+                  {getTotalItems()}
+                </span>
+              )}
+            </button>
             <Link
               href="/contact"
               onClick={() => setIsMobileMenuOpen(false)}
@@ -119,6 +152,8 @@ const Header = ({ className = '' }: HeaderProps) => {
           </nav>
         </div>
       )}
+
+      <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </header>
   );
 };
