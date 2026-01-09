@@ -38,7 +38,7 @@ export default function CartModal({ isOpen, onClose }: CartModalProps) {
     const encodedMessage = encodeURIComponent(message);
 
     // Replace with your WhatsApp business number (include country code without + or spaces)
-    const whatsappNumber = '919876543210'; // Replace with actual number
+    const whatsappNumber = '918956794096';
 
     // Open WhatsApp
     window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
