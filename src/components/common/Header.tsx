@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Icon from '@/components/ui/AppIcon';
 import { useCart } from '@/context/CartContext';
 import CartModal from '@/components/cart/CartModal';
@@ -18,8 +19,6 @@ const Header = ({ className = '' }: HeaderProps) => {
   const navigationItems = [
     { label: 'Home', href: '/homepage' },
     { label: 'Products', href: '/product-catalog' },
-    { label: 'Our Story', href: '/manufacturing-story' },
-    { label: 'Quality', href: '/quality-commitment' },
   ];
 
   const toggleMobileMenu = () => {
@@ -31,29 +30,14 @@ const Header = ({ className = '' }: HeaderProps) => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link href="/homepage" className="flex items-center space-x-3">
-            <div className="flex items-center justify-center w-12 h-12 bg-primary rounded-lg">
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-primary-foreground"
-              >
-                <path
-                  d="M16 4C16 4 8 8 8 16C8 20 10 24 16 28C22 24 24 20 24 16C24 8 16 4 16 4Z"
-                  fill="currentColor"
-                  opacity="0.9"
-                />
-                <circle cx="16" cy="16" r="4" fill="currentColor" />
-                <path
-                  d="M12 12L16 8L20 12"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+            <div className="relative w-14 h-14 flex-shrink-0">
+              <Image
+                src="/assets/images/chhajedfoodproducts_logo-removebg-preview.png"
+                alt="Chhajed Food Products Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-headline font-bold text-xl text-foreground leading-tight">
@@ -65,7 +49,7 @@ const Header = ({ className = '' }: HeaderProps) => {
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav className="hidden md:flex items-center space-x-1">
             {navigationItems.map((item) => (
               <Link
                 key={item.href}
@@ -77,7 +61,7 @@ const Header = ({ className = '' }: HeaderProps) => {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center space-x-3">
+          <div className="hidden md:flex items-center space-x-3">
             <button
               onClick={() => setIsCartOpen(true)}
               className="relative p-2 text-foreground hover:text-primary transition-colors duration-300"
@@ -100,7 +84,7 @@ const Header = ({ className = '' }: HeaderProps) => {
 
           <button
             onClick={toggleMobileMenu}
-            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors duration-300"
+            className="md:hidden p-2 text-foreground hover:text-primary transition-colors duration-300"
             aria-label="Toggle mobile menu"
           >
             <Icon
@@ -113,7 +97,7 @@ const Header = ({ className = '' }: HeaderProps) => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-card border-t border-border">
+        <div className="md:hidden bg-card border-t border-border">
           <nav className="container mx-auto px-4 py-4 flex flex-col space-y-2">
             {navigationItems.map((item) => (
               <Link

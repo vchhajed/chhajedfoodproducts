@@ -10,9 +10,8 @@ interface Product {
   brand: string;
   image: string;
   alt: string;
-  price: number;
-  bulkPrice: number;
-  minBulkQty: number;
+  mrp: number;
+  sellingPrice: number;
   weight: string;
   prepTime: string;
   dietary: string[];
@@ -97,7 +96,22 @@ export default function ProductComparisonModal({
             <tbody>
               <tr className="border-b border-border">
                 <td className="p-4 font-body font-medium text-foreground border-r border-border">
-                  Retail Price
+                  MRP
+                </td>
+                {products.map((product) => (
+                  <td
+                    key={product.id}
+                    className="p-4 text-center border-r border-border last:border-r-0"
+                  >
+                    <p className="font-headline font-semibold text-muted-foreground line-through">
+                      ₹{product.mrp}
+                    </p>
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b border-border bg-muted/30">
+                <td className="p-4 font-body font-medium text-foreground border-r border-border">
+                  Selling Price
                 </td>
                 {products.map((product) => (
                   <td
@@ -105,25 +119,10 @@ export default function ProductComparisonModal({
                     className="p-4 text-center border-r border-border last:border-r-0"
                   >
                     <p className="font-headline font-bold text-lg text-primary">
-                      ₹{product.price}
+                      ₹{product.sellingPrice}
                     </p>
-                  </td>
-                ))}
-              </tr>
-              <tr className="border-b border-border bg-muted/30">
-                <td className="p-4 font-body font-medium text-foreground border-r border-border">
-                  Bulk Price
-                </td>
-                {products.map((product) => (
-                  <td
-                    key={product.id}
-                    className="p-4 text-center border-r border-border last:border-r-0"
-                  >
-                    <p className="font-headline font-semibold text-secondary">
-                      ₹{product.bulkPrice}
-                    </p>
-                    <p className="text-xs font-body text-muted-foreground mt-1">
-                      Min. {product.minBulkQty} units
+                    <p className="text-xs font-body text-success mt-1">
+                      Save ₹{product.mrp - product.sellingPrice} ({Math.round(((product.mrp - product.sellingPrice) / product.mrp) * 100)}% off)
                     </p>
                   </td>
                 ))}

@@ -18,7 +18,7 @@ const EmergencyContact: React.FC = () => {
       icon: 'ChatBubbleLeftEllipsisIcon',
       title: 'Customer Service',
       description: 'General inquiries, order status, and product information',
-      contact: '+91 20 6789 1234',
+      contact: '+91 89567 94096',
       email: 'support@chhajedfoods.com',
       availability: 'Mon-Sat: 9:00 AM - 8:00 PM',
       priority: 'normal'

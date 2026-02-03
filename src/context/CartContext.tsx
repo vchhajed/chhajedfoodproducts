@@ -9,15 +9,17 @@ interface CartItem {
   image: string;
   weight: string;
   quantity: number;
+  price: number;
 }
 
 interface CartContextType {
   cartItems: CartItem[];
-  addToCart: (item: Omit<CartItem, 'quantity'>) => void;
+  addToCart: (item: Omit<CartItem, 'quantity'>, quantity?: number) => void;
   removeFromCart: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
   clearCart: () => void;
   getTotalItems: () => number;
+  getTotalPrice: () => number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -42,15 +44,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }, [cartItems, isHydrated]);
 
-  const addToCart = (item: Omit<CartItem, 'quantity'>) => {
+  const addToCart = (item: Omit<CartItem, 'quantity'>, quantity: number = 1) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((i) => i.id === item.id);
       if (existingItem) {
         return prevItems.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+          i.id === item.id ? { ...i, quantity: i.quantity + quantity } : i
         );
       }
-      return [...prevItems, { ...item, quantity: 1 }];
+      return [...prevItems, { ...item, quantity }];
     });
   };
 
@@ -78,6 +80,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
 
+  const getTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -87,6 +93,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         updateQuantity,
         clearCart,
         getTotalItems,
+        getTotalPrice,
       }}
     >
       {children}

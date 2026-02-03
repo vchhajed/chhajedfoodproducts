@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 interface AppImageProps {
@@ -16,7 +16,9 @@ interface AppImageProps {
     fill?: boolean;
     sizes?: string;
     onClick?: () => void;
+    onLoad?: () => void;
     fallbackSrc?: string;
+    objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
     [key: string]: any;
 }
 
@@ -33,12 +35,21 @@ function AppImage({
     fill = false,
     sizes,
     onClick,
+    onLoad: externalOnLoad,
     fallbackSrc = '/assets/images/no_image.png',
+    objectFit = 'cover',
     ...props
 }: AppImageProps) {
     const [imageSrc, setImageSrc] = useState(src);
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
+
+    // Update imageSrc when src prop changes (e.g., variant switch)
+    useEffect(() => {
+        setImageSrc(src);
+        setIsLoading(true);
+        setHasError(false);
+    }, [src]);
 
     // More reliable external URL detection
     const isExternal = imageSrc.startsWith('http://') || imageSrc.startsWith('https://');
@@ -55,6 +66,9 @@ function AppImage({
     const handleLoad = () => {
         setIsLoading(false);
         setHasError(false);
+        if (externalOnLoad) {
+            externalOnLoad();
+        }
     };
 
     const commonClassName = `${className} ${isLoading ? 'bg-gray-200' : ''} ${onClick ? 'cursor-pointer hover:opacity-90 transition-opacity' : ''}`;
@@ -72,11 +86,11 @@ function AppImage({
                     <img
                         src={imageSrc}
                         alt={alt}
-                        className={`${commonClassName} absolute inset-0 w-full h-full object-cover`}
+                        className={`${commonClassName} absolute inset-0 w-full h-full`}
                         onError={handleError}
                         onLoad={handleLoad}
                         onClick={onClick}
-                        style={imgStyle}
+                        style={{ ...imgStyle, objectFit }}
                         {...props}
                     />
                 </div>
@@ -110,17 +124,16 @@ function AppImage({
         onError: handleError,
         onLoad: handleLoad,
         onClick,
-        ...props,
     };
 
     if (fill) {
         return (
-            <div className={`relative ${className}`}>
+            <div className={`relative w-full h-full ${className}`}>
                 <Image
                     {...imageProps}
                     fill
                     sizes={sizes || '100vw'}
-                    style={{ objectFit: 'cover' }}
+                    style={{ objectFit }}
                 />
             </div>
         );

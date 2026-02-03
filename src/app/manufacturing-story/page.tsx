@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Header from '@/components/common/Header';
 import HeroSection from './components/HeroSection';
-import FounderStory from './components/FounderStory';
 import FacilityTour from './components/FacilityTour';
 import QualityProcess from './components/QualityProcess';
 import Certifications from './components/Certifications';
@@ -22,7 +21,6 @@ export default function ManufacturingStoryPage() {
       <Header />
       <div className="pt-20">
         <HeroSection />
-        <FounderStory />
         <FacilityTour />
         <QualityProcess />
         <Certifications />

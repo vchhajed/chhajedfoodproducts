@@ -123,7 +123,7 @@ export default function BulkInquiryModal({
                   value={formData.phone}
                   onChange={handleChange}
                   className="w-full px-4 py-3 font-body text-foreground bg-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300"
-                  placeholder="+91 98765 43210"
+                  placeholder="+91 89567 94096"
                 />
               </div>
             </div>
