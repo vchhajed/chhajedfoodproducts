@@ -7,10 +7,10 @@ import IngredientSourcingSection from './components/IngredientSourcingSection';
 import TestingLabSection from './components/TestingLabSection';
 import NutritionalTransparencySection from './components/NutritionalTransparencySection';
 import QualityMetricsSection from './components/QualityMetricsSection';
-import CTASection from './components/CTASection';
+// import CTASection from './components/CTASection'; // REMOVED: Mock CTA
 
 export const metadata: Metadata = {
-  title: 'Quality Commitment - Chhajed Foods Hub',
+  title: 'Quality Commitment - Chhajed Food Products Hub',
   description: 'Discover our comprehensive quality assurance processes, certifications, testing protocols, and ingredient sourcing transparency. Quality you can taste, trust you can feel.',
 };
 
@@ -26,7 +26,7 @@ export default function QualityCommitmentPage() {
         <TestingLabSection />
         <NutritionalTransparencySection />
         <QualityMetricsSection />
-        <CTASection />
+        {/* <CTASection /> */}
       </div>
     </main>
   );

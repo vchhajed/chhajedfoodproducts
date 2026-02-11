@@ -42,7 +42,7 @@ const Footer = ({ className = '' }: FooterProps) => {
                 />
               </div>
               <div>
-                <p className="font-headline font-bold text-xl">Chhajed Foods</p>
+                <p className="font-headline font-bold text-xl">Chhajed Food Products</p>
                 <p className="font-body text-xs opacity-80">Heritage & Quality</p>
               </div>
             </div>

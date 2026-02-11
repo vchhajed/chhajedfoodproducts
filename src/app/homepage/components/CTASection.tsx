@@ -45,7 +45,7 @@ export default function CTASection() {
             Ready to Get Started?
           </h2>
           <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
-            Take the next step in your journey with Chhajed Foods
+            Take the next step in your journey with Chhajed Food Products
           </p>
         </div>
 

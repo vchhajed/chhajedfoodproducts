@@ -77,7 +77,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="font-headline font-bold text-xl leading-tight">
-                  Chhajed Foods
+                  Chhajed Food Products
                 </span>
                 <span className="font-body text-xs opacity-80">
                   Heritage &amp; Quality

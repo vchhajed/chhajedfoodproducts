@@ -14,39 +14,31 @@ interface Product {
 }
 
 const mockProducts: Product[] = [
-{
-  id: 1,
-  name: 'Divya Kamal',
-  tagline: 'Premium Dips & Spreads for Every Occasion',
-  image: "https://images.unsplash.com/photo-1578922793921-649a37b9e0b5",
-  alt: 'Assorted colorful dips and spreads in glass bowls on wooden table with fresh vegetables',
-  category: 'Dips & Spreads'
-},
-{
-  id: 2,
-  name: 'Divya Samrat',
-  tagline: 'Traditional Chatni with Authentic Flavors',
-  image: "https://images.unsplash.com/photo-1596040033229-a0b30b9edfc8",
-  alt: 'Traditional Indian chatni in decorative bowls with fresh herbs and spices',
-  category: 'Chatni'
-},
-{
-  id: 3,
-  name: 'Tajmahak',
-  tagline: 'Sweet & Refreshing Syrups',
-  image: "https://images.unsplash.com/photo-1546173159-315724a31696",
-  alt: 'Colorful fruit syrups in glass bottles with fresh fruits',
-  category: 'Syrups'
-},
-{
-  id: 4,
-  name: 'Yuhvi',
-  tagline: 'Premium Fragrances',
-  image: "https://images.unsplash.com/photo-1602524206684-48f5ab5c0654",
-  alt: 'Elegant fragrance bottles with flowers and essential oils',
-  category: 'Fragrances'
-}];
-
+  {
+    id: 1,
+    name: 'Divya Kamal',
+    tagline: 'Premium Dips & Spreads for Every Occasion',
+    image: '/assets/images/hero/h1.png',
+    alt: 'Divya Kamal Vanilla Flavoured Dip - Creamy, Smooth, Dessert Ready',
+    category: 'Dips & Spreads',
+  },
+  {
+    id: 2,
+    name: 'Divya Samrat',
+    tagline: 'Traditional Chatni with Authentic Flavors',
+    image: '/assets/images/hero/h2.png',
+    alt: 'Divya Samrat Mango Flavoured Sweet Chatni - Sweet, Tangy & Sparkling',
+    category: 'Chatni',
+  },
+  {
+    id: 3,
+    name: 'Tajmahak',
+    tagline: 'Sweet & Refreshing Syrups',
+    image: '/assets/images/hero/h3.png',
+    alt: 'Tajmahak Strawberry Flavour Syrup - Sweet & Fruity',
+    category: 'Syrups',
+  },
+];
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -67,7 +59,9 @@ export default function HeroSection() {
   }, [isHydrated]);
 
   const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + mockProducts.length) % mockProducts.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + mockProducts.length) % mockProducts.length
+    );
   };
 
   const handleNextSlide = () => {
@@ -80,92 +74,130 @@ export default function HeroSection() {
 
   if (!isHydrated) {
     return (
-      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] bg-gradient-to-br from-amber-50 to-amber-100">
-        <div className="absolute inset-0 flex items-center justify-center px-4">
-          <div className="text-center">
-            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 sm:mb-4">
+      <section className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-gradient-to-br from-background to-card">
+        <div className="container mx-auto px-4 h-full flex items-center">
+          <div className="w-1/2">
+            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
               {mockProducts[0].name}
             </h1>
-            <p className="font-body text-base sm:text-lg md:text-xl text-muted-foreground">
+            <p className="font-body text-base sm:text-lg text-muted-foreground mt-2">
               {mockProducts[0].tagline}
             </p>
           </div>
         </div>
-      </section>);
-
+      </section>
+    );
   }
 
   return (
-    <section className="relative h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden bg-gradient-to-br from-amber-50 to-amber-100">
-      <div className="absolute inset-0">
-        {mockProducts.map((product, index) =>
-        <div
-          key={product.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-          index === currentSlide ? 'opacity-100' : 'opacity-0'}`
-          }>
-
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 md:from-black/60 md:to-transparent z-10" />
-            <AppImage
-            src={product.image}
-            alt={product.alt}
-            className="w-full h-full object-cover" />
-
-          </div>
-        )}
-      </div>
-
-      <div className="relative z-20 container mx-auto px-4 h-full flex items-center">
-        <div className="max-w-2xl">
+    <section className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden bg-gradient-to-br from-background to-card">
+      <div className="container mx-auto px-4 h-full flex items-center relative z-20">
+        {/* Left side - Text content */}
+        <div className="w-full md:w-5/12 relative z-10">
           <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-primary/90 text-primary-foreground font-cta font-semibold text-xs sm:text-sm rounded-full mb-3 sm:mb-4">
             {mockProducts[currentSlide].category}
           </span>
-          <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 sm:mb-3 md:mb-4">
+          <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-3 md:mb-4">
             {mockProducts[currentSlide].name}
           </h1>
-          <p className="font-body text-sm sm:text-base md:text-lg lg:text-2xl text-white/90 mb-4 sm:mb-6 md:mb-8">
+          <p className="font-body text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-4 sm:mb-6 md:mb-8">
             {mockProducts[currentSlide].tagline}
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 md:gap-4">
             <button className="px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-cta font-semibold text-sm sm:text-base rounded-md shadow-warm transition-all duration-300">
               Explore Products
             </button>
-            <button className="px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 bg-white/10 hover:bg-white/20 text-white font-cta font-semibold text-sm sm:text-base rounded-md backdrop-blur-sm transition-all duration-300">
+            <button className="px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-cta font-semibold text-sm sm:text-base rounded-md transition-all duration-300">
               Contact Sales
             </button>
           </div>
         </div>
+
+        {/* Right side - Product image */}
+        <div className="hidden md:flex w-7/12 h-full items-center justify-center relative">
+          {mockProducts.map((product, index) => (
+            <div
+              key={product.id}
+              className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ${
+                index === currentSlide
+                  ? 'opacity-100 translate-x-0'
+                  : 'opacity-0 translate-x-8'
+              }`}
+            >
+              <AppImage
+                src={product.image}
+                alt={product.alt}
+                width={700}
+                height={500}
+                objectFit="contain"
+                className="max-h-[90%] w-auto object-contain drop-shadow-2xl"
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
+      {/* Mobile image - shown below text on small screens */}
+      <div className="md:hidden absolute bottom-12 right-0 w-1/2 h-1/2">
+        {mockProducts.map((product, index) => (
+          <div
+            key={product.id}
+            className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <AppImage
+              src={product.image}
+              alt={product.alt}
+              width={300}
+              height={200}
+              objectFit="contain"
+              className="max-h-full w-auto object-contain"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Prev / Next arrows */}
       <button
         onClick={handlePrevSlide}
-        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full transition-all duration-300"
-        aria-label="Previous slide">
-
-        <Icon name="ChevronLeftIcon" size={20} className="text-white sm:w-6 sm:h-6" />
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-foreground/10 hover:bg-foreground/20 backdrop-blur-sm rounded-full transition-all duration-300"
+        aria-label="Previous slide"
+      >
+        <Icon
+          name="ChevronLeftIcon"
+          size={20}
+          className="text-foreground sm:w-6 sm:h-6"
+        />
       </button>
 
       <button
         onClick={handleNextSlide}
-        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full transition-all duration-300"
-        aria-label="Next slide">
-
-        <Icon name="ChevronRightIcon" size={20} className="text-white sm:w-6 sm:h-6" />
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-foreground/10 hover:bg-foreground/20 backdrop-blur-sm rounded-full transition-all duration-300"
+        aria-label="Next slide"
+      >
+        <Icon
+          name="ChevronRightIcon"
+          size={20}
+          className="text-foreground sm:w-6 sm:h-6"
+        />
       </button>
 
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2 sm:gap-3">
-        {mockProducts.map((_, index) =>
-        <button
-          key={index}
-          onClick={() => handleDotClick(index)}
-          className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-          index === currentSlide ?
-          'bg-primary w-6 sm:w-8' : 'bg-white/50 hover:bg-white/70'}`
-          }
-          aria-label={`Go to slide ${index + 1}`} />
-
-        )}
+      {/* Dot indicators */}
+      <div className="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 z-30 flex gap-2 sm:gap-3">
+        {mockProducts.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handleDotClick(index)}
+            className={`h-2 sm:h-3 rounded-full transition-all duration-300 ${
+              index === currentSlide
+                ? 'bg-primary w-6 sm:w-8'
+                : 'w-2 sm:w-3 bg-foreground/30 hover:bg-foreground/50'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
-    </section>);
-
+    </section>
+  );
 }

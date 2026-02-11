@@ -25,7 +25,7 @@ const mockTestimonials: Testimonial[] = [
   image: "https://img.rocket.new/generatedImages/rocket_gen_img_105b96742-1763300606680.png",
   alt: 'Professional Indian man in blue business suit smiling at camera in modern office',
   rating: 5,
-  testimonial: 'Chhajed Foods has been our trusted partner for over 5 years. Their consistent quality, timely deliveries, and competitive pricing make them our preferred supplier for premium snacks.',
+  testimonial: 'Chhajed Food Products has been our trusted partner for over 5 years. Their consistent quality, timely deliveries, and competitive pricing make them our preferred supplier for premium snacks.',
   type: 'b2b'
 },
 {
@@ -47,7 +47,7 @@ const mockTestimonials: Testimonial[] = [
   image: "https://img.rocket.new/generatedImages/rocket_gen_img_13678b705-1763296904811.png",
   alt: 'Middle-aged Indian businessman in white shirt smiling confidently in warehouse setting',
   rating: 5,
-  testimonial: 'Excellent partnership experience! Their support team is responsive, product margins are healthy, and customer demand is consistently high. Proud to represent Chhajed Foods.',
+  testimonial: 'Excellent partnership experience! Their support team is responsive, product margins are healthy, and customer demand is consistently high. Proud to represent Chhajed Food Products.',
   type: 'b2b'
 },
 {

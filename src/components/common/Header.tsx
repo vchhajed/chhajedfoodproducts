@@ -41,7 +41,7 @@ const Header = ({ className = '' }: HeaderProps) => {
             </div>
             <div className="flex flex-col">
               <span className="font-headline font-bold text-xl text-foreground leading-tight">
-                Chhajed Foods
+                Chhajed Food Products
               </span>
               <span className="font-body text-xs text-muted-foreground">
                 Heritage & Quality

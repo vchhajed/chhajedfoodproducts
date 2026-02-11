@@ -27,7 +27,7 @@ const FAQSection: React.FC = () => {
     },
     {
       id: 'faq2',
-      question: 'How can I become a distributor for Chhajed Foods?',
+      question: 'How can I become a distributor for Chhajed Food Products?',
       answer: 'To become a distributor, please fill out our distributor application form or contact our regional sales manager for your area. We evaluate applications based on territory availability, business experience, and distribution capabilities. The approval process typically takes 7-10 business days.',
       category: 'B2B'
     },
