@@ -26,8 +26,8 @@ const ContactMethods: React.FC = () => {
       icon: 'PhoneIcon',
       title: 'Call Us',
       description: 'Speak directly with our customer service team for immediate assistance',
-      action: 'tel:+918956794096',
-      actionLabel: '+91 89567 94096',
+      action: 'tel:+918551971234',
+      actionLabel: '+91 8551971234',
       availability: 'Mon-Sat: 9:00 AM - 6:00 PM IST'
     },
     {
@@ -44,8 +44,8 @@ const ContactMethods: React.FC = () => {
       icon: 'ChatBubbleLeftRightIcon',
       title: 'WhatsApp Business',
       description: 'Quick responses for product inquiries and order updates',
-      action: 'https://wa.me/918956794096',
-      actionLabel: '+91 89567 94096',
+      action: 'https://wa.me/918551971234',
+      actionLabel: '+91 8551971234',
       availability: 'Mon-Sat: 9:00 AM - 8:00 PM IST'
     },
     {
