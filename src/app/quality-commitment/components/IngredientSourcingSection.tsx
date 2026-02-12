@@ -107,7 +107,7 @@ export default function IngredientSourcingSection() {
                 width="100%"
                 height="100%"
                 loading="lazy"
-                title="Chhajed Foods Supplier Network Map"
+                title="Chhajed Food Products Supplier Network Map"
                 referrerPolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps?q=18.5204,73.8567&z=6&output=embed"
                 className="border-0">

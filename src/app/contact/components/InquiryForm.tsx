@@ -138,7 +138,7 @@ const InquiryForm: React.FC = () => {
                   Inquiry Submitted Successfully!
                 </h3>
                 <p className="font-body text-sm text-foreground">
-                  Thank you for contacting Chhajed Foods. Our team will review your inquiry and respond within 24 hours.
+                  Thank you for contacting Chhajed Food Products. Our team will review your inquiry and respond within 24 hours.
                 </p>
               </div>
             </div>

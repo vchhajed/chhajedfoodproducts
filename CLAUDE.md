@@ -40,11 +40,13 @@ npm run format      # Format all TypeScript/CSS/MD/JSON files in src/
   - `src/app/[route]/page.tsx` - Page component
   - `src/app/[route]/components/` - Page-specific components
 - **Shared Components**:
-  - `src/components/common/` - Reusable components (Header, etc.)
+  - `src/components/common/` - Reusable components (Header)
   - `src/components/ui/` - Base UI components (AppIcon, AppImage)
-  - `src/components/cart/` - Cart-related components
+  - `src/components/cart/` - Cart-related components (CartModal)
 - **Global State**: Context API for cart management (`src/context/CartContext.tsx`)
-- **Static Data**: Product catalog stored in `src/data/products.ts`
+- **Static Data**:
+  - Product catalog stored in `src/data/products.ts`
+  - Recipe data hardcoded in `src/app/recipe-hub/components/RecipeHubInteractive.tsx` as `mockRecipes` array
 
 ### Key Routes
 
@@ -78,6 +80,9 @@ The root `/` redirects to `/homepage` (configured in `next.config.mjs`):
 - Supports both outline and solid variants
 - Fallback to QuestionMarkCircleIcon for missing icons
 
+**Image Component** (`src/components/ui/AppImage.tsx`):
+- Wrapper around Next.js Image component for consistent image handling
+
 **Path Aliasing**:
 - `@/` maps to `src/` directory (configured in `tsconfig.json`)
 
@@ -103,6 +108,34 @@ interface Product {
 ```
 
 **Pricing Display**: Products show MRP (crossed out) followed by the selling price, with savings percentage calculated automatically.
+
+### Recipe Data Structure
+
+Recipes are defined in `src/app/recipe-hub/components/RecipeHubInteractive.tsx` with the following schema:
+
+```typescript
+interface Recipe {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+  prepTime: number;         // In minutes
+  cookTime: number;         // In minutes
+  difficulty: 'Easy' | 'Medium' | 'Hard';
+  servings: number;
+  products: string[];       // Array of product names used in recipe
+  category: string;         // "Appetizers", "Snacks", "Main Course", etc.
+  likes: number;
+  author: string;
+  authorImage: string;
+  authorAlt: string;
+  ingredients: string[];
+  instructions: string[];
+  nutritionalInfo: { calories, protein, carbs, fat };
+  tips: string[];
+}
+```
 
 ## Configuration Notes
 
@@ -137,15 +170,23 @@ interface Product {
 
 - **Tailwind CSS 3.4.6** with custom theme configuration
 - **Design System**: Uses semantic color tokens (primary, secondary, muted, etc.)
-- **Custom Fonts**: Defined via font classes (font-headline, font-body, font-cta)
-- **Animations**: `tailwindcss-animate` plugin installed
+- **Custom Fonts** (defined in `tailwind.config.js`):
+  - `font-headline`: Playfair Display (serif)
+  - `font-body`: Source Sans 3 (sans-serif)
+  - `font-cta`: Outfit (sans-serif)
+  - `font-accent`: Crimson Text (serif)
+- **Custom Shadows**: Three "warm" shadow variants (`shadow-warm`, `shadow-warm-sm`, `shadow-warm-lg`) with amber tones
+- **Animations**: `tailwindcss-animate` plugin with accordion animations
+- **Dark Mode**: Class-based dark mode support configured
 - Global styles: `src/styles/index.css`
 
 ## Development Notes
 
 - All page routes have their own component folders - keep page-specific components co-located
 - When adding new products, update `src/data/products.ts` with proper product structure
+- When adding new recipes, update the `mockRecipes` array in `src/app/recipe-hub/components/RecipeHubInteractive.tsx`
 - The cart uses localStorage - handle hydration correctly in client components
-- Header component is shared across all pages via individual page imports (not in root layout)
+- **Header Pattern**: Header component is shared across all pages via individual page imports (not in root layout)
+- **Footer Pattern**: Each page has its own Footer component in its components directory (not a shared component)
 - Images are stored in `/public/products/[category]/` directories
 - Company logo is located at `/public/assets/images/chhajedfoodproducts logo.jpg` and used in Header and all Footer components

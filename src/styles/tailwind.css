@@ -9,57 +9,57 @@
 
 @layer base {
   :root {
-    /* Primary Colors - Warm Turmeric Confidence */
-    --color-primary: #D97706; /* amber-600 */
-    --color-primary-foreground: #FFFFFF; /* white */
-    
-    /* Secondary Colors - Deep Paprika Authority */
-    --color-secondary: #7C2D12; /* red-900 */
-    --color-secondary-foreground: #FFFFFF; /* white */
-    
-    /* Accent Colors - Golden Saffron Highlights */
-    --color-accent: #F59E0B; /* amber-500 */
-    --color-accent-foreground: #1C1917; /* stone-900 */
-    
-    /* Background Colors - Warm Cream Canvas */
-    --color-background: #FFFBEB; /* amber-50 */
-    --color-foreground: #1C1917; /* stone-900 */
-    
-    /* Surface Colors - Subtle Spice Dust */
-    --color-card: #FEF3C7; /* amber-100 */
-    --color-card-foreground: #1C1917; /* stone-900 */
-    
+    /* Primary Colors - Rich Antique Gold */
+    --color-primary: #B8860B; /* dark goldenrod */
+    --color-primary-foreground: #FFFFFF;
+
+    /* Secondary Colors - Deep Mahogany */
+    --color-secondary: #2C1810; /* rich dark brown */
+    --color-secondary-foreground: #F5F0E8;
+
+    /* Accent Colors - Champagne Gold */
+    --color-accent: #D4A843; /* champagne gold */
+    --color-accent-foreground: #1A1714;
+
+    /* Background Colors - Warm Ivory */
+    --color-background: #FAF8F5; /* soft ivory */
+    --color-foreground: #1A1714; /* deep charcoal */
+
+    /* Surface Colors - Soft Parchment */
+    --color-card: #F2EDE6; /* warm parchment */
+    --color-card-foreground: #1A1714;
+
     /* Popover Colors */
-    --color-popover: #FFFFFF; /* white */
-    --color-popover-foreground: #1C1917; /* stone-900 */
-    
-    /* Muted Colors - Gentle Cinnamon Hierarchy */
-    --color-muted: #FEF3C7; /* amber-100 */
-    --color-muted-foreground: #78716C; /* stone-500 */
-    
-    /* Destructive/Error Colors - Respectful Correction Red */
-    --color-destructive: #DC2626; /* red-600 */
-    --color-destructive-foreground: #FFFFFF; /* white */
-    
-    /* Success Colors - Fresh Cilantro Confirmation */
-    --color-success: #16A34A; /* green-600 */
-    --color-success-foreground: #FFFFFF; /* white */
-    
-    /* Warning Colors - Chili Pepper Urgency */
-    --color-warning: #EA580C; /* orange-600 */
-    --color-warning-foreground: #FFFFFF; /* white */
-    
-    /* Error Colors - Helpful Guidance */
-    --color-error: #DC2626; /* red-600 */
-    --color-error-foreground: #FFFFFF; /* white */
-    
-    /* Border Colors */
-    --color-border: #FDE68A; /* amber-200 */
-    --color-input: #FDE68A; /* amber-200 */
-    
+    --color-popover: #FFFFFF;
+    --color-popover-foreground: #1A1714;
+
+    /* Muted Colors - Refined Taupe */
+    --color-muted: #EDE8E0; /* soft taupe */
+    --color-muted-foreground: #6B6358; /* warm gray */
+
+    /* Destructive/Error Colors */
+    --color-destructive: #C0392B;
+    --color-destructive-foreground: #FFFFFF;
+
+    /* Success Colors */
+    --color-success: #1E7A46;
+    --color-success-foreground: #FFFFFF;
+
+    /* Warning Colors */
+    --color-warning: #D4790E;
+    --color-warning-foreground: #FFFFFF;
+
+    /* Error Colors */
+    --color-error: #C0392B;
+    --color-error-foreground: #FFFFFF;
+
+    /* Border Colors - Warm Taupe */
+    --color-border: #DCD3C3;
+    --color-input: #DCD3C3;
+
     /* Ring Colors */
-    --color-ring: #D97706; /* amber-600 */
-    
+    --color-ring: #B8860B;
+
     /* Radius */
     --radius: 0.5rem;
   }
