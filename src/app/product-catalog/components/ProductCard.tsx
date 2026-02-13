@@ -45,7 +45,7 @@ export default function ProductCard({ product, variants = [], onSampleRequest, o
   return (
     <div className="bg-card rounded-xl shadow-warm overflow-hidden border border-border hover:shadow-warm-lg transition-all duration-300 flex flex-col h-full group">
       {/* Image Container - Fixed aspect ratio with full image visibility */}
-      <div className="relative bg-gradient-to-b from-muted/50 to-muted p-4">
+      <div className="relative bg-gradient-to-b from-muted/50 to-muted p-2 sm:p-4">
         <div className="relative aspect-square w-full">
           <AppImage
             src={selectedVariant.image}
@@ -93,43 +93,43 @@ export default function ProductCard({ product, variants = [], onSampleRequest, o
       </div>
 
       {/* Content */}
-      <div className="p-5 flex flex-col flex-grow">
+      <div className="p-3 sm:p-5 flex flex-col flex-grow">
         {/* Brand */}
-        <p className="text-xs font-body font-medium text-muted-foreground uppercase tracking-wider mb-1">
+        <p className="text-[10px] sm:text-xs font-body font-medium text-muted-foreground uppercase tracking-wider mb-1">
           {selectedVariant.brand}
         </p>
 
         {/* Product Name */}
-        <h3 className="font-headline font-bold text-lg text-foreground mb-2 line-clamp-2">
+        <h3 className="font-headline font-bold text-sm sm:text-lg text-foreground mb-1.5 sm:mb-2 line-clamp-2">
           {selectedVariant.name}
         </h3>
 
         {/* Price */}
-        <div className="flex flex-col gap-1 mb-3">
-          <div className="flex items-baseline gap-2">
-            <span className="font-headline font-bold text-2xl text-primary">
+        <div className="flex flex-col gap-0.5 sm:gap-1 mb-2 sm:mb-3">
+          <div className="flex items-baseline gap-1 sm:gap-2 flex-wrap">
+            <span className="font-headline font-bold text-lg sm:text-2xl text-primary">
               {formatPrice(selectedVariant.sellingPrice)}
             </span>
-            <span className="text-sm font-body text-muted-foreground line-through">
+            <span className="text-xs sm:text-sm font-body text-muted-foreground line-through">
               {formatPrice(selectedVariant.mrp)}
             </span>
           </div>
-          <span className="text-xs font-body text-success">
+          <span className="text-[10px] sm:text-xs font-body text-success">
             Save {formatPrice(selectedVariant.mrp - selectedVariant.sellingPrice)} ({Math.round(((selectedVariant.mrp - selectedVariant.sellingPrice) / selectedVariant.mrp) * 100)}% off)
           </span>
         </div>
 
         {/* Size Selector */}
         {hasMultipleVariants && (
-          <div className="mb-4">
-            <label className="text-xs font-body font-medium text-muted-foreground mb-2 block">
+          <div className="mb-2 sm:mb-4">
+            <label className="text-[10px] sm:text-xs font-body font-medium text-muted-foreground mb-1 sm:mb-2 block">
               Select Size
             </label>
             <div className="relative">
               <select
                 value={selectedVariant.id}
                 onChange={(e) => handleVariantChange(Number(e.target.value))}
-                className="w-full px-4 py-2.5 pr-10 font-body text-sm text-foreground bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none cursor-pointer transition-all"
+                className="w-full px-2 sm:px-4 py-1.5 sm:py-2.5 pr-7 sm:pr-10 font-body text-xs sm:text-sm text-foreground bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none cursor-pointer transition-all"
               >
                 {allVariants.map((variant) => (
                   <option key={variant.id} value={variant.id}>
@@ -141,7 +141,7 @@ export default function ProductCard({ product, variants = [], onSampleRequest, o
                 name="ChevronDownIcon"
                 size={16}
                 variant="outline"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none"
+                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none"
               />
             </div>
           </div>
@@ -149,45 +149,45 @@ export default function ProductCard({ product, variants = [], onSampleRequest, o
 
         {/* Weight & Prep Time (only show if single variant) */}
         {!hasMultipleVariants && (
-          <div className="flex items-center gap-4 mb-4 text-sm">
-            <div className="flex items-center gap-1.5">
-              <Icon name="ScaleIcon" size={14} variant="outline" className="text-primary" />
+          <div className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4 text-xs sm:text-sm">
+            <div className="flex items-center gap-1">
+              <Icon name="ScaleIcon" size={12} variant="outline" className="text-primary sm:w-3.5 sm:h-3.5" />
               <span className="font-body text-foreground">{selectedVariant.weight}</span>
             </div>
-            <div className="flex items-center gap-1.5">
-              <Icon name="ClockIcon" size={14} variant="outline" className="text-primary" />
+            <div className="flex items-center gap-1">
+              <Icon name="ClockIcon" size={12} variant="outline" className="text-primary sm:w-3.5 sm:h-3.5" />
               <span className="font-body text-foreground">{selectedVariant.prepTime}</span>
             </div>
           </div>
         )}
 
         {/* Description */}
-        <p className="text-sm font-body text-muted-foreground line-clamp-2 mb-4">
+        <p className="text-xs sm:text-sm font-body text-muted-foreground line-clamp-2 mb-2 sm:mb-4 hidden sm:block">
           {selectedVariant.description}
         </p>
 
         {/* Quantity Selector and Add to Cart */}
-        <div className="mt-auto space-y-3">
+        <div className="mt-auto space-y-2 sm:space-y-3">
           {/* Quantity Selector */}
           <div className="flex items-center justify-between">
-            <span className="text-sm font-body font-medium text-foreground">Quantity</span>
-            <div className="flex items-center gap-3">
+            <span className="text-xs sm:text-sm font-body font-medium text-foreground">Qty</span>
+            <div className="flex items-center gap-1.5 sm:gap-3">
               <button
                 onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
                 disabled={quantity <= 1 || !selectedVariant.inStock}
-                className="w-8 h-8 flex items-center justify-center rounded-lg border border-border bg-background hover:bg-muted text-foreground transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-md sm:rounded-lg border border-border bg-background hover:bg-muted text-foreground transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Icon name="MinusIcon" size={16} variant="outline" />
+                <Icon name="MinusIcon" size={14} variant="outline" className="sm:w-4 sm:h-4" />
               </button>
-              <span className="w-8 text-center font-headline font-semibold text-foreground">
+              <span className="w-5 sm:w-8 text-center font-headline font-semibold text-sm sm:text-base text-foreground">
                 {quantity}
               </span>
               <button
                 onClick={() => setQuantity((prev) => prev + 1)}
                 disabled={!selectedVariant.inStock}
-                className="w-8 h-8 flex items-center justify-center rounded-lg border border-border bg-background hover:bg-muted text-foreground transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-md sm:rounded-lg border border-border bg-background hover:bg-muted text-foreground transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Icon name="PlusIcon" size={16} variant="outline" />
+                <Icon name="PlusIcon" size={14} variant="outline" className="sm:w-4 sm:h-4" />
               </button>
             </div>
           </div>
@@ -209,16 +209,17 @@ export default function ProductCard({ product, variants = [], onSampleRequest, o
               setTimeout(() => setAddedToCart(false), 2000);
             }}
             disabled={!selectedVariant.inStock}
-            className="w-full px-4 py-3 font-cta font-semibold text-sm text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg shadow-warm-sm transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 font-cta font-semibold text-xs sm:text-sm text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg shadow-warm-sm transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-1.5 sm:gap-2"
           >
             {addedToCart ? (
               <>
-                <Icon name="CheckCircleIcon" size={20} variant="solid" />
-                {addedQuantity} {addedQuantity === 1 ? 'item' : 'items'} added
+                <Icon name="CheckCircleIcon" size={16} variant="solid" className="sm:w-5 sm:h-5" />
+                <span className="hidden sm:inline">{addedQuantity} {addedQuantity === 1 ? 'item' : 'items'} added</span>
+                <span className="sm:hidden">Added</span>
               </>
             ) : (
               <>
-                <Icon name="ShoppingCartIcon" size={20} variant="outline" />
+                <Icon name="ShoppingCartIcon" size={16} variant="outline" className="sm:w-5 sm:h-5" />
                 Add to Cart
               </>
             )}

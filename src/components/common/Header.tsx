@@ -28,9 +28,9 @@ const Header = ({ className = '' }: HeaderProps) => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-card shadow-warm ${className}`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          <Link href="/homepage" className="flex items-center space-x-3">
-            <div className="relative w-14 h-14 flex-shrink-0">
+        <div className="flex items-center justify-between h-16 sm:h-20">
+          <Link href="/homepage" className="flex items-center space-x-2 sm:space-x-3 min-w-0">
+            <div className="relative w-10 h-10 sm:w-14 sm:h-14 flex-shrink-0">
               <Image
                 src="/assets/images/chhajedfoodproducts_logo-removebg-preview.png"
                 alt="Chhajed Food Products Logo"
@@ -39,11 +39,11 @@ const Header = ({ className = '' }: HeaderProps) => {
                 priority
               />
             </div>
-            <div className="flex flex-col">
-              <span className="font-headline font-bold text-xl text-foreground leading-tight">
+            <div className="flex flex-col min-w-0">
+              <span className="font-headline font-bold text-sm sm:text-xl text-foreground leading-tight truncate">
                 Chhajed Food Products
               </span>
-              <span className="font-body text-xs text-muted-foreground">
+              <span className="font-body text-[10px] sm:text-xs text-muted-foreground">
                 Heritage & Quality
               </span>
             </div>

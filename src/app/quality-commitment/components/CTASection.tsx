@@ -3,7 +3,7 @@ import Icon from '@/components/ui/AppIcon';
 
 export default function CTASection() {
   return (
-    <section className="py-20 bg-gradient-to-r from-primary via-accent to-primary">
+    <section className="py-12 md:py-20 bg-gradient-to-r from-primary via-accent to-primary">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <Icon name="ShieldCheckIcon" size={64} variant="solid" className="text-primary-foreground mx-auto mb-6" />

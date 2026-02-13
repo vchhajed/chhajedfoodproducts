@@ -18,7 +18,7 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
-      <div className="pt-20">
+      <div className="pt-16 sm:pt-20">
         <ContactHero />
         <ContactMethods />
         <div id="inquiry-form">

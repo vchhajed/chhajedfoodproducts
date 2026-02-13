@@ -58,37 +58,37 @@ export default function PathwaySelector() {
   };
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-10 sm:py-12 md:py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="font-headline text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
             Choose Your Journey
           </h2>
-          <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-body text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Whether you&apos;re a business partner or a food enthusiast, we have the perfect solution for you
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {mockPathways.map((pathway) => (
             <div
               key={pathway.id}
-              className={`bg-card rounded-lg p-6 cursor-pointer transition-all duration-300 border-2 ${
+              className={`bg-card rounded-lg p-4 sm:p-6 cursor-pointer transition-all duration-300 border-2 ${
                 selectedPathway === pathway.id
-                  ? 'border-primary shadow-warm-lg scale-105'
+                  ? 'border-primary shadow-warm-lg md:scale-105'
                   : 'border-border hover:border-primary/50 hover:shadow-warm'
               }`}
               onClick={() => handlePathwayClick(pathway.id)}
             >
-              <div className="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-lg mb-4">
-                <Icon name={pathway.icon as any} size={32} className="text-primary" />
+              <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-lg mb-3 sm:mb-4">
+                <Icon name={pathway.icon as any} size={24} className="text-primary sm:w-8 sm:h-8" />
               </div>
-              
-              <h3 className="font-headline text-2xl font-semibold text-foreground mb-2">
+
+              <h3 className="font-headline text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-2">
                 {pathway.title}
               </h3>
-              
-              <p className="font-body text-muted-foreground mb-4">
+
+              <p className="font-body text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">
                 {pathway.description}
               </p>
 
@@ -112,7 +112,7 @@ export default function PathwaySelector() {
                       </li>
                     ))}
                   </ul>
-                  <button className="w-full mt-6 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-cta font-semibold rounded-md shadow-warm-sm transition-all duration-300">
+                  <button className="w-full mt-4 sm:mt-6 px-5 sm:px-6 py-2.5 sm:py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-cta font-semibold text-sm sm:text-base rounded-md shadow-warm-sm transition-all duration-300">
                     Get Started
                   </button>
                 </div>

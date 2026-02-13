@@ -65,28 +65,28 @@ const Sustainability = ({ className = '' }: SustainabilityProps) => {
 
 
   return (
-    <section className={`py-20 bg-card ${className}`}>
+    <section className={`py-12 md:py-20 bg-card ${className}`}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-success/20 rounded-full mb-4">
-            <p className="font-cta text-sm font-semibold text-success-foreground">Sustainability Commitment</p>
+        <div className="text-center mb-8 md:mb-16">
+          <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-success/20 rounded-full mb-3 sm:mb-4">
+            <p className="font-cta text-xs sm:text-sm font-semibold text-success-foreground">Sustainability Commitment</p>
           </div>
-          <h2 className="font-headline text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             Manufacturing with Responsibility
           </h2>
-          <p className="font-body text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="font-body text-sm sm:text-base md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Our commitment to quality extends beyond products to environmental stewardship and sustainable manufacturing practices.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-8 md:mb-16">
           {metrics.map((metric) =>
-          <div key={metric.id} className="bg-background rounded-2xl p-6 shadow-warm-md text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-success/20 rounded-full mb-4">
-                <Icon name={metric.icon as any} size={32} className="text-success" />
+          <div key={metric.id} className="bg-background rounded-2xl p-4 sm:p-6 shadow-warm-md text-center">
+              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-16 sm:h-16 bg-success/20 rounded-full mb-2 sm:mb-4">
+                <Icon name={metric.icon as any} size={20} className="text-success sm:w-8 sm:h-8" />
               </div>
-              <h3 className="font-headline text-4xl font-bold text-success mb-2">{metric.value}</h3>
-              <p className="font-cta font-semibold text-foreground mb-2">{metric.title}</p>
+              <h3 className="font-headline text-2xl sm:text-4xl font-bold text-success mb-1 sm:mb-2">{metric.value}</h3>
+              <p className="font-cta font-semibold text-foreground text-xs sm:text-base mb-1 sm:mb-2">{metric.title}</p>
               <p className="font-body text-sm text-muted-foreground leading-relaxed">
                 {metric.description}
               </p>
@@ -94,9 +94,9 @@ const Sustainability = ({ className = '' }: SustainabilityProps) => {
           )}
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-8 md:mb-16">
           <div>
-            <h3 className="font-headline text-3xl font-bold text-foreground mb-6">
+            <h3 className="font-headline text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4 sm:mb-6">
               Our Green Initiatives
             </h3>
             <div className="space-y-4">
@@ -124,7 +124,7 @@ const Sustainability = ({ className = '' }: SustainabilityProps) => {
               <AppImage
                 src="https://images.unsplash.com/photo-1632884943447-474061c1ea63"
                 alt="Solar panels installed on factory rooftop with green trees and blue sky in background"
-                className="w-full h-[500px] object-cover" />
+                className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover" />
 
             </div>
           </div>

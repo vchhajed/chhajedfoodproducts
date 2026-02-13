@@ -71,46 +71,46 @@ const mockMetrics: Metric[] = [
 
 export default function TrustSignals() {
   return (
-    <section className="py-16 bg-card">
+    <section className="py-10 sm:py-12 md:py-16 bg-card">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="font-headline text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
             Quality You Can Trust
           </h2>
-          <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-body text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Our commitment to excellence is backed by industry-leading certifications and proven track record
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-10 sm:mb-12 md:mb-16">
           {mockCertifications.map((cert) => (
             <div
               key={cert.id}
-              className="bg-background rounded-lg p-6 text-center hover:shadow-warm transition-all duration-300"
+              className="bg-background rounded-lg p-3 sm:p-4 md:p-6 text-center hover:shadow-warm transition-all duration-300"
             >
-              <div className="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4">
-                <Icon name={cert.icon as any} size={32} variant="solid" className="text-primary" />
+              <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-primary/10 rounded-full mx-auto mb-2 sm:mb-3 md:mb-4">
+                <Icon name={cert.icon as any} size={20} variant="solid" className="text-primary sm:w-6 sm:h-6 md:w-8 md:h-8" />
               </div>
-              <h3 className="font-cta font-semibold text-foreground mb-2">
+              <h3 className="font-cta font-semibold text-foreground text-xs sm:text-sm md:text-base mb-1 sm:mb-2">
                 {cert.name}
               </h3>
-              <p className="font-body text-sm text-muted-foreground">
+              <p className="font-body text-[10px] sm:text-xs md:text-sm text-muted-foreground">
                 {cert.description}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {mockMetrics.map((metric) => (
             <div key={metric.id} className="text-center">
-              <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mx-auto mb-3">
-                <Icon name={metric.icon as any} size={24} className="text-primary" />
+              <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full mx-auto mb-2 sm:mb-3">
+                <Icon name={metric.icon as any} size={20} className="text-primary sm:w-6 sm:h-6" />
               </div>
-              <div className="font-headline text-4xl font-bold text-primary mb-2">
+              <div className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">
                 {metric.value}
               </div>
-              <div className="font-body text-sm text-muted-foreground">
+              <div className="font-body text-xs sm:text-sm text-muted-foreground">
                 {metric.label}
               </div>
             </div>

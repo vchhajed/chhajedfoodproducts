@@ -39,7 +39,7 @@ export default function CheckoutPage() {
     return (
       <main className="min-h-screen bg-background">
         <Header />
-        <div className="pt-20 flex items-center justify-center min-h-[60vh]">
+        <div className="pt-16 sm:pt-20 flex items-center justify-center min-h-[60vh]">
           <div className="w-8 h-8 border-3 border-primary/30 border-t-primary rounded-full animate-spin" />
         </div>
       </main>
@@ -51,7 +51,7 @@ export default function CheckoutPage() {
     return (
       <main className="min-h-screen bg-background">
         <Header />
-        <div className="pt-20">
+        <div className="pt-16 sm:pt-20">
           <div className="container mx-auto px-4 py-16 sm:py-24 flex flex-col items-center text-center">
             <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center mb-6">
               <Icon name="ShoppingCartIcon" size={40} variant="outline" className="text-muted-foreground" />
@@ -77,7 +77,7 @@ export default function CheckoutPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
-      <div className="pt-20">
+      <div className="pt-16 sm:pt-20">
         {/* Breadcrumb */}
         <div className="container mx-auto px-4 py-4 sm:py-6">
           <nav className="flex items-center gap-2 font-body text-sm text-muted-foreground">

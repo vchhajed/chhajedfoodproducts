@@ -19,7 +19,7 @@ export default function Homepage() {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="pt-20">
+      <main className="pt-16 sm:pt-20">
         <HeroSection />
         <OurBrands />
         <PathwaySelector />

@@ -58,9 +58,9 @@ const Certifications = ({ className = '' }: CertificationsProps) => {
   ];
 
   return (
-    <section className={`py-20 bg-card ${className}`}>
+    <section className={`py-12 md:py-20 bg-card ${className}`}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <div className="inline-block px-4 py-2 bg-primary/20 rounded-full mb-4">
             <p className="font-cta text-sm font-semibold text-primary">Certifications & Compliance</p>
           </div>
@@ -72,7 +72,7 @@ const Certifications = ({ className = '' }: CertificationsProps) => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-8 md:mb-16">
           {certifications.map((cert) => (
             <div key={cert.id} className="bg-background rounded-2xl p-8 shadow-warm-md hover:shadow-warm-lg transition-all duration-300">
               <div className="flex items-start space-x-4 mb-6">

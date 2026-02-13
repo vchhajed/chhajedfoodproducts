@@ -74,13 +74,13 @@ export default function HeroSection() {
 
   if (!isHydrated) {
     return (
-      <section className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-gradient-to-br from-background to-card">
+      <section className="relative min-h-[280px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-gradient-to-br from-background to-card">
         <div className="container mx-auto px-4 h-full flex items-center">
-          <div className="w-1/2">
-            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+          <div className="w-full md:w-1/2 py-8 sm:py-0">
+            <h1 className="font-headline text-2xl sm:text-4xl md:text-5xl font-bold text-foreground">
               {mockProducts[0].name}
             </h1>
-            <p className="font-body text-base sm:text-lg text-muted-foreground mt-2">
+            <p className="font-body text-sm sm:text-lg text-muted-foreground mt-2">
               {mockProducts[0].tagline}
             </p>
           </div>
@@ -90,96 +90,78 @@ export default function HeroSection() {
   }
 
   return (
-    <section className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden bg-gradient-to-br from-background to-card">
-      <div className="container mx-auto px-4 h-full flex items-center relative z-20">
-        {/* Left side - Text content */}
-        <div className="w-full md:w-5/12 relative z-10">
-          <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-primary/90 text-primary-foreground font-cta font-semibold text-xs sm:text-sm rounded-full mb-3 sm:mb-4">
-            {mockProducts[currentSlide].category}
-          </span>
-          <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-3 md:mb-4">
-            {mockProducts[currentSlide].name}
-          </h1>
-          <p className="font-body text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-4 sm:mb-6 md:mb-8">
-            {mockProducts[currentSlide].tagline}
-          </p>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 md:gap-4">
-            <button className="px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-cta font-semibold text-sm sm:text-base rounded-md shadow-warm transition-all duration-300">
-              Explore Products
-            </button>
-            <button className="px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-cta font-semibold text-sm sm:text-base rounded-md transition-all duration-300">
-              Contact Sales
-            </button>
-          </div>
-        </div>
-
-        {/* Right side - Product image */}
-        <div className="hidden md:flex w-7/12 h-full items-center justify-center relative">
-          {mockProducts.map((product, index) => (
-            <div
-              key={product.id}
-              className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ${
-                index === currentSlide
-                  ? 'opacity-100 translate-x-0'
-                  : 'opacity-0 translate-x-8'
-              }`}
-            >
-              <AppImage
-                src={product.image}
-                alt={product.alt}
-                width={700}
-                height={500}
-                objectFit="contain"
-                className="max-h-[90%] w-auto object-contain drop-shadow-2xl"
-              />
+    <section className="relative overflow-hidden bg-gradient-to-br from-background to-card">
+      {/* Desktop: fixed height, side-by-side. Mobile: auto height, stacked */}
+      <div className="container mx-auto px-4 relative z-20 md:h-[500px] lg:h-[600px]">
+        <div className="flex flex-col md:flex-row md:items-center md:h-full py-8 pb-14 sm:py-10 md:py-0">
+          {/* Left side - Text content */}
+          <div className="w-full md:w-5/12 relative z-10">
+            <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-primary/90 text-primary-foreground font-cta font-semibold text-xs sm:text-sm rounded-full mb-3 sm:mb-4">
+              {mockProducts[currentSlide].category}
+            </span>
+            <h1 className="font-headline text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-3 md:mb-4">
+              {mockProducts[currentSlide].name}
+            </h1>
+            <p className="font-body text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-4 sm:mb-6 md:mb-8">
+              {mockProducts[currentSlide].tagline}
+            </p>
+            <div className="flex flex-row flex-wrap gap-2 sm:gap-3 md:gap-4">
+              <button className="px-5 py-2.5 sm:px-7 sm:py-3.5 md:px-8 md:py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-cta font-semibold text-sm sm:text-base rounded-md shadow-warm transition-all duration-300">
+                Explore Products
+              </button>
+              <button className="px-5 py-2.5 sm:px-7 sm:py-3.5 md:px-8 md:py-4 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-cta font-semibold text-sm sm:text-base rounded-md transition-all duration-300">
+                Contact Sales
+              </button>
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Mobile image - shown below text on small screens */}
-      <div className="md:hidden absolute bottom-12 right-0 w-1/2 h-1/2">
-        {mockProducts.map((product, index) => (
-          <div
-            key={product.id}
-            className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <AppImage
-              src={product.image}
-              alt={product.alt}
-              width={300}
-              height={200}
-              objectFit="contain"
-              className="max-h-full w-auto object-contain"
-            />
           </div>
-        ))}
+
+          {/* Right side - Product image (all screens) */}
+          <div className="w-full md:w-7/12 flex items-center justify-center relative mt-6 md:mt-0 h-[200px] sm:h-[280px] md:h-full">
+            {mockProducts.map((product, index) => (
+              <div
+                key={product.id}
+                className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ${
+                  index === currentSlide
+                    ? 'opacity-100 translate-x-0'
+                    : 'opacity-0 translate-x-8'
+                }`}
+              >
+                <AppImage
+                  src={product.image}
+                  alt={product.alt}
+                  width={700}
+                  height={500}
+                  objectFit="contain"
+                  className="max-h-full w-auto object-contain drop-shadow-2xl"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Prev / Next arrows */}
       <button
         onClick={handlePrevSlide}
-        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-foreground/10 hover:bg-foreground/20 backdrop-blur-sm rounded-full transition-all duration-300"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center bg-foreground/10 hover:bg-foreground/20 backdrop-blur-sm rounded-full transition-all duration-300"
         aria-label="Previous slide"
       >
         <Icon
           name="ChevronLeftIcon"
-          size={20}
-          className="text-foreground sm:w-6 sm:h-6"
+          size={18}
+          className="text-foreground sm:w-5 sm:h-5 md:w-6 md:h-6"
         />
       </button>
 
       <button
         onClick={handleNextSlide}
-        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-foreground/10 hover:bg-foreground/20 backdrop-blur-sm rounded-full transition-all duration-300"
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center bg-foreground/10 hover:bg-foreground/20 backdrop-blur-sm rounded-full transition-all duration-300"
         aria-label="Next slide"
       >
         <Icon
           name="ChevronRightIcon"
-          size={20}
-          className="text-foreground sm:w-6 sm:h-6"
+          size={18}
+          className="text-foreground sm:w-5 sm:h-5 md:w-6 md:h-6"
         />
       </button>
 
