@@ -3,20 +3,20 @@ import Icon from '@/components/ui/AppIcon';
 
 export default function IngredientSourcingSection() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-headline text-3xl lg:text-4xl font-bold text-foreground mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
+          <h2 className="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4">
             Trusted Ingredient Sourcing Partners
           </h2>
-          <p className="font-body text-lg text-muted-foreground">
+          <p className="font-body text-sm sm:text-base md:text-lg text-muted-foreground">
             We collaborate with certified suppliers who share our commitment to quality, sustainability, and ethical practices
           </p>
         </div>
 
-        <div className="mb-16">
-          <div className="bg-card rounded-2xl shadow-warm-lg p-8 lg:p-12">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="mb-8 md:mb-16">
+          <div className="bg-card rounded-2xl shadow-warm-lg p-4 sm:p-8 lg:p-12">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div>
                 <h3 className="font-headline text-2xl font-bold text-foreground mb-6">
                   Our Sourcing Philosophy
@@ -81,12 +81,12 @@ export default function IngredientSourcingSection() {
                   <AppImage
                     src="https://img.rocket.new/generatedImages/rocket_gen_img_10d6cf5d6-1765079593854.png"
                     alt="Farmer in straw hat inspecting organic vegetable crops in sunlit field with quality produce"
-                    className="w-full h-[500px] object-cover" />
+                    className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover" />
 
                 </div>
-                <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground px-8 py-6 rounded-xl shadow-warm-lg">
-                  <p className="font-headline text-4xl font-bold">50+</p>
-                  <p className="font-body text-sm">Trusted Partners</p>
+                <div className="absolute -bottom-4 left-2 sm:-bottom-6 sm:-left-6 bg-primary text-primary-foreground px-4 py-3 sm:px-8 sm:py-6 rounded-xl shadow-warm-lg">
+                  <p className="font-headline text-2xl sm:text-4xl font-bold">50+</p>
+                  <p className="font-body text-xs sm:text-sm">Trusted Partners</p>
                 </div>
               </div>
             </div>

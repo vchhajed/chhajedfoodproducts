@@ -77,16 +77,16 @@ const FacilityTour = ({ className = '' }: FacilityTourProps) => {
   const currentArea = facilityAreas.find((area) => area.id === activeArea) || facilityAreas[0];
 
   return (
-    <section className={`py-20 bg-card ${className}`}>
+    <section className={`py-12 md:py-20 bg-card ${className}`}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <div className="inline-block px-4 py-2 bg-primary/20 rounded-full mb-4">
-            <p className="font-cta text-sm font-semibold text-primary">Virtual Tour</p>
+        <div className="text-center mb-8 md:mb-12">
+          <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/20 rounded-full mb-3 sm:mb-4">
+            <p className="font-cta text-xs sm:text-sm font-semibold text-primary">Virtual Tour</p>
           </div>
-          <h2 className="font-headline text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
             Inside Our Manufacturing Excellence
           </h2>
-          <p className="font-body text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="font-body text-sm sm:text-base md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Take a virtual journey through our state-of-the-art facility and discover how we maintain the highest standards of quality and hygiene.
           </p>
         </div>
@@ -117,7 +117,7 @@ const FacilityTour = ({ className = '' }: FacilityTourProps) => {
 
           <div className="lg:col-span-2">
             <div className="bg-background rounded-2xl overflow-hidden shadow-warm-lg">
-              <div className="relative h-[400px] overflow-hidden">
+              <div className="relative h-[250px] sm:h-[300px] md:h-[400px] overflow-hidden">
                 <AppImage
                   src={currentArea.image}
                   alt={currentArea.alt}
@@ -130,8 +130,8 @@ const FacilityTour = ({ className = '' }: FacilityTourProps) => {
                 </div>
               </div>
               
-              <div className="p-8">
-                <h3 className="font-headline text-3xl font-bold text-foreground mb-4">
+              <div className="p-4 sm:p-6 md:p-8">
+                <h3 className="font-headline text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-3 sm:mb-4">
                   {currentArea.title}
                 </h3>
                 <p className="font-body text-lg text-foreground/80 mb-6 leading-relaxed">

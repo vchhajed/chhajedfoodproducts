@@ -7,7 +7,7 @@ interface CTASectionProps {
 
 const CTASection = ({ className = '' }: CTASectionProps) => {
   return (
-    <section className={`py-20 bg-gradient-to-br from-primary via-accent to-secondary ${className}`}>
+    <section className={`py-12 md:py-20 bg-gradient-to-br from-primary via-accent to-secondary ${className}`}>
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary-foreground mb-6">

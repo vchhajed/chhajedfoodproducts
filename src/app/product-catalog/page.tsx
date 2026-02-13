@@ -11,7 +11,7 @@ export default function ProductCatalogPage() {
   return (
     <>
       <Header />
-      <main className="pt-20">
+      <main className="pt-16 sm:pt-20">
         <ProductCatalogInteractive />
       </main>
     </>

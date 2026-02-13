@@ -84,7 +84,7 @@ const InnovationLab = ({ className = '' }: InnovationLabProps) => {
   };
 
   return (
-    <section className={`py-20 bg-background ${className}`}>
+    <section className={`py-12 md:py-20 bg-background ${className}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <div className="inline-block px-4 py-2 bg-accent/20 rounded-full mb-4">
@@ -114,7 +114,7 @@ const InnovationLab = ({ className = '' }: InnovationLabProps) => {
           )}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-8 md:mb-16">
           {filteredInnovations.map((innovation) =>
           <div key={innovation.id} className="bg-card rounded-2xl overflow-hidden shadow-warm-md hover:shadow-warm-lg transition-all duration-300">
               <div className="relative h-64 overflow-hidden">

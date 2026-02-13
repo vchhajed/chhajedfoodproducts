@@ -62,9 +62,9 @@ export default function QualityMetricsSection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
           <h2 className="font-headline text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Quality Performance Metrics
           </h2>

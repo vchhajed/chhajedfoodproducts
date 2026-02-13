@@ -51,9 +51,9 @@ const TeamSpotlight = ({ className = '' }: TeamSpotlightProps) => {
 
 
   return (
-    <section className={`py-20 bg-background ${className}`}>
+    <section className={`py-12 md:py-20 bg-background ${className}`}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <div className="inline-block px-4 py-2 bg-primary/20 rounded-full mb-4">
             <p className="font-cta text-sm font-semibold text-primary">Meet Our Team</p>
           </div>
@@ -65,7 +65,7 @@ const TeamSpotlight = ({ className = '' }: TeamSpotlightProps) => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-8 md:mb-16">
           {teamMembers.map((member) =>
           <div key={member.id} className="bg-card rounded-2xl overflow-hidden shadow-warm-md hover:shadow-warm-lg transition-all duration-300">
               <div className="relative h-80 overflow-hidden">

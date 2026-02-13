@@ -79,9 +79,9 @@ export default function NutritionalTransparencySection() {
   const currentProduct = products.find(p => p.id === selectedProduct) || products[0];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
           <h2 className="font-headline text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Complete Nutritional Transparency
           </h2>

@@ -52,9 +52,9 @@ const QualityProcess = ({ className = '' }: QualityProcessProps) => {
   ];
 
   return (
-    <section className={`py-20 bg-background ${className}`}>
+    <section className={`py-12 md:py-20 bg-background ${className}`}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <div className="inline-block px-4 py-2 bg-success/20 rounded-full mb-4">
             <p className="font-cta text-sm font-semibold text-success-foreground">Quality Assurance</p>
           </div>
@@ -98,7 +98,7 @@ const QualityProcess = ({ className = '' }: QualityProcessProps) => {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 md:p-12">
+        <div className="mt-8 md:mt-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 md:p-12">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
               <div className="inline-flex items-center justify-center w-16 h-16 bg-primary rounded-full mb-4">

@@ -53,7 +53,7 @@ export default function OurBrands() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-background via-card/50 to-background relative overflow-hidden">
+    <section className="py-10 sm:py-14 md:py-20 bg-gradient-to-b from-background via-card/50 to-background relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
@@ -62,23 +62,23 @@ export default function OurBrands() {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block font-accent text-primary text-sm tracking-[0.3em] uppercase mb-3">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <span className="inline-block font-accent text-primary text-xs sm:text-sm tracking-[0.3em] uppercase mb-2 sm:mb-3">
             Our Portfolio
           </span>
-          <h2 className="font-headline text-4xl md:text-5xl font-bold text-foreground mb-5">
+          <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-5">
             Brands That Define{' '}
             <span className="text-primary">Quality</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-6 rounded-full" />
-          <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-4 sm:mb-6 rounded-full" />
+          <p className="font-body text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Each brand in our family carries forward the legacy of authentic
             Indian flavors with uncompromising quality standards
           </p>
         </div>
 
         {/* Brands Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 max-w-6xl mx-auto">
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-5 max-w-6xl mx-auto">
           {brands.map((brand) => (
             <div
               key={brand.id}
@@ -97,9 +97,9 @@ export default function OurBrands() {
                 }`}
               />
 
-              <div className="relative p-5 flex flex-col items-center">
+              <div className="relative p-3 sm:p-5 flex flex-col items-center">
                 {/* Logo Container */}
-                <div className="w-full aspect-[4/3] flex items-center justify-center mb-4 p-2">
+                <div className="w-full aspect-[4/3] flex items-center justify-center mb-2 sm:mb-4 p-1 sm:p-2">
                   <AppImage
                     src={brand.logo}
                     alt={brand.name}
@@ -114,7 +114,7 @@ export default function OurBrands() {
 
                 {/* Brand Info */}
                 <div className="text-center">
-                  <h3 className="font-cta font-semibold text-foreground text-sm">
+                  <h3 className="font-cta font-semibold text-foreground text-xs sm:text-sm">
                     {brand.name}
                   </h3>
                   <p
@@ -133,8 +133,8 @@ export default function OurBrands() {
         </div>
 
         {/* Bottom Tagline */}
-        <div className="text-center mt-14">
-          <p className="font-accent text-muted-foreground italic text-lg">
+        <div className="text-center mt-8 sm:mt-10 md:mt-14">
+          <p className="font-accent text-muted-foreground italic text-sm sm:text-base md:text-lg">
             &ldquo;From our family to yours &mdash; six brands, one promise of
             quality&rdquo;
           </p>
