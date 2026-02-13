@@ -97,11 +97,13 @@ export default function CartModal({ isOpen, onClose }: CartModalProps) {
                   key={item.id}
                   className="flex gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 bg-background rounded-lg border border-border"
                 >
-                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-md overflow-hidden flex-shrink-0">
+                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-md overflow-hidden flex-shrink-0 bg-muted">
                     <AppImage
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full object-cover"
+                      fill={true}
+                      objectFit="contain"
+                      sizes="80px"
                     />
                   </div>
                   <div className="flex-1 min-w-0">

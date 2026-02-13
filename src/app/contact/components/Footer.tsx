@@ -132,10 +132,10 @@ const Footer: React.FC = () => {
               <div className="flex items-center space-x-2">
                 <Icon name="PhoneIcon" size={16} className="opacity-80" />
                 <a
-                  href="tel:+918956794096"
+                  href="tel:+918551971234"
                   className="font-body text-sm opacity-80 hover:opacity-100 transition-opacity"
                 >
-                  +91 89567 94096
+                  +91 8551971234
                 </a>
               </div>
               <div className="flex items-center space-x-2">

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Header from '@/components/common/Header';
 import { useCart } from '@/context/CartContext';
 import Icon from '@/components/ui/AppIcon';
-import CheckoutForm, { BillingDetails, validateBillingDetails } from './components/CheckoutForm';
+import CheckoutForm, { BillingDetails } from './components/CheckoutForm';
 import OrderSummary from './components/OrderSummary';
 import PaymentButton from './components/PaymentButton';
 
@@ -26,24 +26,12 @@ export default function CheckoutPage() {
     pincode: '',
   });
 
-  const [formErrors, setFormErrors] = useState<ReturnType<typeof validateBillingDetails>>({});
-
   useEffect(() => {
     setIsHydrated(true);
   }, []);
 
   const handleBillingChange = (details: BillingDetails) => {
     setBillingDetails(details);
-    // Re-validate on change if there are existing errors
-    if (Object.keys(formErrors).length > 0) {
-      setFormErrors(validateBillingDetails(details));
-    }
-  };
-
-  const handleValidationFail = () => {
-    setFormErrors(validateBillingDetails(billingDetails));
-    // Scroll to the billing form so user sees the errors
-    document.getElementById('billing-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   // Wait for hydration to check cart state
@@ -116,17 +104,14 @@ export default function CheckoutPage() {
               <CheckoutForm
                 billingDetails={billingDetails}
                 onChange={handleBillingChange}
-                errors={formErrors}
+                errors={{}}
               />
             </div>
 
             {/* Right: Order Summary + Payment */}
-            <div className="lg:col-span-2 space-y-4">
+            <div className="lg:col-span-2 space-y-4 lg:sticky lg:top-28 lg:self-start">
               <OrderSummary />
-              <PaymentButton
-                billingDetails={billingDetails}
-                onValidationFail={handleValidationFail}
-              />
+              <PaymentButton billingDetails={billingDetails} />
               <button
                 onClick={() => router.back()}
                 className="w-full px-6 py-3 bg-background border border-border text-foreground font-cta font-medium text-sm rounded-lg hover:bg-muted transition-colors flex items-center justify-center gap-2"

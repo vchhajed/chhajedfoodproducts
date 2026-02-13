@@ -30,7 +30,7 @@ export default function OrderSummary() {
   const { deliveryCharge, gstAmount, grandTotal } = getOrderTotals(subtotal);
 
   return (
-    <div className="bg-card rounded-xl border border-border p-5 sm:p-6 md:p-8 lg:sticky lg:top-28">
+    <div className="bg-card rounded-xl border border-border p-5 sm:p-6 md:p-8">
       <div className="flex items-center gap-3 mb-6">
         <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
           <Icon name="ShoppingBagIcon" size={20} variant="solid" className="text-primary" />
@@ -52,11 +52,13 @@ export default function OrderSummary() {
             key={item.id}
             className="flex gap-3 p-3 bg-background rounded-lg border border-border"
           >
-            <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
+            <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0 bg-muted">
               <AppImage
                 src={item.image}
                 alt={item.name}
-                className="w-full h-full object-cover"
+                fill={true}
+                objectFit="contain"
+                sizes="64px"
               />
             </div>
             <div className="flex-1 min-w-0">

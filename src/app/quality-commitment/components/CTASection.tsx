@@ -54,7 +54,7 @@ export default function CTASection() {
                 Quality Hotline
               </p>
               <p className="font-body text-xs text-primary-foreground/80">
-                +91 89567 94096
+                +91 8551971234
               </p>
             </div>
           </div>

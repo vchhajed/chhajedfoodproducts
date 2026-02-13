@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Icon from '@/components/ui/AppIcon';
 import { useCart } from '@/context/CartContext';
-import CartModal from '@/components/cart/CartModal';
 
 interface HeaderProps {
   className?: string;
@@ -13,8 +13,8 @@ interface HeaderProps {
 
 const Header = ({ className = '' }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
   const { getTotalItems } = useCart();
+  const router = useRouter();
 
   const navigationItems = [
     { label: 'Home', href: '/homepage' },
@@ -63,7 +63,7 @@ const Header = ({ className = '' }: HeaderProps) => {
 
           <div className="hidden md:flex items-center space-x-3">
             <button
-              onClick={() => setIsCartOpen(true)}
+              onClick={() => router.push('/checkout')}
               className="relative p-2 text-foreground hover:text-primary transition-colors duration-300"
               aria-label="Shopping cart"
             >
@@ -111,7 +111,7 @@ const Header = ({ className = '' }: HeaderProps) => {
             ))}
             <button
               onClick={() => {
-                setIsCartOpen(true);
+                router.push('/checkout');
                 setIsMobileMenuOpen(false);
               }}
               className="px-4 py-3 font-body font-medium text-foreground hover:text-primary hover:bg-muted rounded-md transition-all duration-300 ease-out flex items-center justify-between"
@@ -137,7 +137,6 @@ const Header = ({ className = '' }: HeaderProps) => {
         </div>
       )}
 
-      <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </header>
   );
 };
